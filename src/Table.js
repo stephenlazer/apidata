@@ -13,34 +13,27 @@ const TableHeader = ()=>{
     </thead>
     )
 }
-const TableBody = ()=>{
-    return(
-    <tbody>
-        <tr>
-            <td>John Doe</td>
-            <td>28</td>
-            <td>Software Engineer</td>
+const TableBody = (props) =>{
+    const {dataTableValueSending} = props;
+    const rows = dataTableValueSending.map((dataValue, index) =>{
+        return (
+        <tr key={index}>
+            <td>{dataValue.name}</td>
+            <td>{dataValue.age}</td>
+            <td>{dataValue.occupation}</td>
         </tr>
-        <tr>
-            <td>Jane Smith</td>
-            <td>34</td>
-            <td>Graphic Designer</td>
-        </tr>
-        <tr>
-            <td>Emily Johnson</td>
-            <td>25</td>
-            <td>Data Analyst</td> 
-        </tr>
-    </tbody>
-    )
-}
+        );
+    });
+    return <tbody>{rows}</tbody>;
+};
 // Class Component
 class Table extends React.Component {
     render(){
+        const {dataTableValueSending} = this.props;
         return(
-            <table className="data-table" border="0" cellpadding="5" cellspacing="0">
+            <table className="data-table"> 
                <TableHeader/> 
-                <TableBody/>
+                <TableBody dataTableValueSending={dataTableValueSending}/> 
             </table>
 
         )
