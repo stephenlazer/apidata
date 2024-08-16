@@ -31,7 +31,7 @@ class Table extends React.Component {
     render(){
         const {dataTableValueSending} = this.props;
         return(
-            <table className="data-table"> 
+            <table className="data-table" cellpadding='0' cellspacing='0'> 
                <TableHeader/> 
                 <TableBody dataTableValueSending={dataTableValueSending}/> 
             </table>

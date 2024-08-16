@@ -1,5 +1,11 @@
 import React from "react";
 import Table from "./Table";
+import User from "./User";
+
+// Pass Function as Props
+function getData(){
+  alert("User data display");
+}
 
 class App extends React.Component{
     render(){
@@ -15,8 +21,8 @@ class App extends React.Component{
             occupation: 'Frontend Developer'
         },
         {
-            name: 'Aspan',
-            age: 20,
+            name: 'Imran',
+            age: 34,
             occupation: 'Backend Developer'
         },
         {
@@ -29,12 +35,15 @@ class App extends React.Component{
 
       return(
         <div className="header-container">
-          <h1>Data Table 1</h1>
+          <h1>Data Table</h1>
           <Table dataTableValueSending={dataTableValue}/>  
+          <User userDataPassing={getData}/>
         </div>
       )
     }
 
 }
+
+
 
 export default App;
